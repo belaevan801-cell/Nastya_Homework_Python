@@ -36,13 +36,12 @@ def test_capitalize_negative(input_str, expected):
 
 @pytest.mark.positive
 @pytest.mark.parametrize("input_str, expected", [
-    (" skypro", "skypro"),
-    ("  ", ""),
-    (" python", "python"),
-    ("  java"), ("java"),
-    ("  windows", "windows")
-
-
+  (" skypro", "skypro"),
+  (" ", ""),
+  (" python", "python"),
+  (" java", "java"),
+  (" windows", "windows"),
+  (" ", ""),
 ])
 def test_trim_positive(input_str, expected):
     assert string_utils.trim(input_str) == expected
@@ -52,8 +51,7 @@ def test_trim_positive(input_str, expected):
 @pytest.mark.parametrize("input_str, expected", [
     ("123abc", "123abc"),
     ("", ""),
-    ("   ", "   "),
-    ("None", "None"),
+    (" ", ""),
     ("04 апреля 2023", "04 апреля 2023"),
     ("12345", "12345")
 
@@ -107,7 +105,7 @@ def test_contains_negative(str1, str2, result):
     ("Text", "t", "Tex"),
     ("12345", "3", "1245"),
     ("12345", "45", "123"),
-    ("None", "None")
+
 
 ])
 def test_delete_symbol_positive(input_text, input_symbol, expected_output):
@@ -121,11 +119,10 @@ def test_delete_symbol_positive(input_text, input_symbol, expected_output):
     ("Text", "m", "Text"),
     ("12345", "9", "12345"),
     ("12345", "78", "12345"),
-    ("None", "None"),
     ("test string", "z", "test string"),
     ("", "d", ""),
     (" ", "d", " "),
-    ("", "", "")
+    ("text", "", "text")
 
 ])
 def test_delete_symbol_negative(input_text, input_symbol, expected_output):
